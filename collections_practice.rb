@@ -14,6 +14,7 @@ end
   #swap_elements
 def swap_elements(array)
     array[1], array[2] = array[2], array[1]
+    array
 end
 def swap_elements_to(array, index, final_index)
     array[index], array[final_index] = array[final_index], array[index]
@@ -24,16 +25,21 @@ def reverse_array(array)
 end
   #kesha_maker
 def kesha_maker(array)
-    array.each do |string|
+    array.map do |string|
         string[2] = '$'
+        string
     end
+    return array
 end
   #find_a
-def find_a
+def find_a(array)
+    array.select {|string| string.start_with?('a')}
 end
   #sum_array
-def sum_array
+def sum_array(array)
+    array.reduce {|sum, n| sum + n}
 end
   #add_s
-def add_s
+def add_s(array)
+    array.each_with_index.map {|word, index| index === 1 ? word : word + "s"}
 end
